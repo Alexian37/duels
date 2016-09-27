@@ -4,7 +4,16 @@ function display() {
 	for (var i = 0 ; i < fighters.length ; i++) {
 
 		var template = $('<div class="thumbnail" >');
-		template.append('<h1>' + fighters[i][0].replace(/_/g,' ') + '</h1>');
+		template.append('<h1>' + fighters[i].name + '</h1>');
+		template.append('<p>' + fighters[i].abilities.length + ' abilities</p>');
+		template.append('<p>' + fighters[i].bases.length + ' bases</p>');
+		template.append('<p>' + fighters[i].styles.length + ' styles</p>');
+		template.append('<p>' + fighters[i].finishers.length + ' finishers</p>');
+		if (fighters[i].special != undefined) {
+			template.append('<p>' + fighters[i].special.length + ' special</p>');
+		} else {
+			template.append('<p>No special</p>')
+		}
 
 		$("body").append(template);
 	}
@@ -13,55 +22,32 @@ function display() {
 function process() {
 	$("body").empty();
 
+	var prio = [];
+	var pow = [];
+	var range = [];
+
 	for (var i = 0 ; i < fighters.length ; i++) {
 
-		var obj = {};
-		obj.name = fighters[i][0].replace(/_/g,' ');
-		obj.abilities = [];
-		for (var j = 0 ; j < fighters[i][1].length / 3; j++) {
-			obj.abilities.push({
-				name: fighters[i][1][j*3],
-				type: fighters[i][1][j*3+1],
-				text: fighters[i][1][j*3+2],
-			})
-		}
-		obj.styles = [];
-		obj.bases = [];
-		for (var j = 0 ; j < fighters[i][2].length / 5; j++) {
-			if (j < 5) {
-				obj.styles.push({
-					name: fighters[i][2][j*5],
-					range: fighters[i][2][j*5+1],
-					power: fighters[i][2][j*5+2],
-					priority: fighters[i][2][j*5+3],
-					capacity: fighters[i][2][j*5+4],
-				});
-			} else {
-				obj.bases.push({
-					name: fighters[i][2][j*5],
-					range: fighters[i][2][j*5+1],
-					power: fighters[i][2][j*5+2],
-					priority: fighters[i][2][j*5+3],
-					capacity: fighters[i][2][j*5+4],
-				});
+		for (var j = 0 ; j < fighters[i].finishers.length; j++) {
+			if (prio.indexOf(fighters[i].finishers[j].priority) == -1) {
+				prio.push(fighters[i].finishers[j].priority);
+			}
+			if (pow.indexOf(fighters[i].finishers[j].power) == -1) {
+				pow.push(fighters[i].finishers[j].power);
+				if (fighters[i].finishers[j].power == "25") {
+					console.log(fighters[i]);
+				}
+			}
+			if (range.indexOf(fighters[i].finishers[j].range) == -1) {
+				range.push(fighters[i].finishers[j].range);
 			}
 		}
-		obj.finishers = [];
-		for (var j = 0 ; j < fighters[i][3].length / 6; j++) {
-			obj.finishers.push({
-				name: fighters[i][3][j*6+1],
-				range: fighters[i][3][j*6+2],
-				power: fighters[i][3][j*6+3],
-				priority: fighters[i][3][j*6+4],
-				capacity: fighters[i][3][j*6+5],
-			});
-		}
-		if (fighters[i][4] != undefined) {
-			obj.special = fighters[i][4];
-		}
-
-		$("body").append('<div>' + JSON.stringify(obj) + ',</div>');
+		
+		
 	}
+	$("body").append('<div> range : ' + JSON.stringify(range) + ',</div>');
+	$("body").append('<div> pow : ' + JSON.stringify(pow) + ',</div>');
+	$("body").append('<div> prio : ' + JSON.stringify(prio) + ',</div>');
 }
 
 $(window).on('load', process);
