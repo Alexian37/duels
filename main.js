@@ -3,7 +3,7 @@ function display() {
 
 	for (var i = 0 ; i < fighters.length ; i++) {
 
-		var template = $('<div class="thumbnail" >');
+		var template = $('<div class="thumbnail summary" >');
 		template.append('<h1>' + fighters[i].name + '</h1>');
 		template.append('<p>' + fighters[i].abilities.length + ' abilities</p>');
 		template.append('<p>' + fighters[i].bases.length + ' bases</p>');
@@ -14,6 +14,57 @@ function display() {
 		} else {
 			template.append('<p>No special</p>')
 		}
+
+		$("body").append(template);
+	}
+}
+
+function giveAbility(ab) {
+	var div = $('<div class="ability">');
+	div.append('<span class="sub">(' + ab.type +  ') </span> ');
+	div.append('<span class="title">' + ab.name +  ': </span> ');
+	div.append('<span class="desc">' + ab.text +  ' </span> ');
+	return div;
+}
+
+function giveCard(card, style, finisher) {
+	var div = $('<div class="card">');
+	if (style === true) div.addClass("style");
+	if (finisher === true) div.addClass("finisher");
+	div.append('<span class="title">' + card.name +  '</span> ');
+	div.append('<span class="carac"><span class="range">' + card.range +  '</span><span class="power">' + card.power +  '</span><span class="priority">' + card.priority +  '</span></span> ');
+	div.append('<div class="capacity">' + card.capacity +  ' </div> ');
+	return div;
+}
+
+function displayFull() {
+	$("body").empty();
+
+	for (var i = 0 ; i < fighters.length ; i++) {
+
+		var template = $('<div class="thumbnail full" >');
+		template.append('<h1>' + fighters[i].name + '</h1>');
+
+		if (fighters[i].abilities.length > 0) template.append('<h2>Abilities</h2>');
+		for (var j = 0 ; j < fighters[i].abilities.length ; j++) {
+			template.append(giveAbility(fighters[i].abilities[j]));
+		}
+		
+		template.append('<h2>Cards</h2>');
+		for (var j = 0 ; j < fighters[i].styles.length ; j++) {
+			template.append(giveCard(fighters[i].styles[j], true));
+		}
+		for (var j = 0 ; j < fighters[i].bases.length ; j++) {
+			template.append(giveCard(fighters[i].bases[j]));
+		}
+		
+		for (var j = 0 ; j < fighters[i].finishers.length ; j++) {
+			template.append(giveCard(fighters[i].finishers[j], false, true));
+		}
+		
+		if (fighters[i].special != undefined) {
+			template.append('<p>' + fighters[i].special.length + ' special</p>');
+		} 
 
 		$("body").append(template);
 	}
@@ -50,4 +101,4 @@ function process() {
 	$("body").append('<div> prio : ' + JSON.stringify(prio) + ',</div>');
 }
 
-$(window).on('load', process);
+$(window).on('load', displayFull);

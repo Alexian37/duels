@@ -4,17 +4,78 @@
 <style type="text/css">
 	div.thumbnail {
 		display: inline-block;
-		width: 350px;
 		font-family: sans-serif;
 		text-align: center;
 		border: #000 1px solid;
 		margin: 2px;
-		height: 400px;
+		padding: 2px;
 		vertical-align: top;
 	} 
+
+	div.thumbnail.summary {
+		width: 350px;
+		height: 250px;
+	}
+
+	div.thumbnail.full {
+		width: 750px;
+	}
+
 	div.thumbnail h1 {
 		font-size: 1.2em;
 	}
+
+	div.thumbnail h2 {
+		font-size: 1.2em;
+	}
+
+	div.ability {
+		text-align: left;
+		font-size: 0.9em;
+		margin-bottom: 0.5em;
+	}
+
+	.title {
+		font-weight: bold;
+	}
+	.sub {
+		font-size: 0.8em;
+		font-style:	italic;
+	}
+
+	.capacity {
+		text-align: left;
+	}
+
+	div.card {
+		display: inline-block;
+		width: 180px;
+		border: #000 1px solid;
+		margin: 1px;
+		padding: 1px;
+		font-size: 0.9em;
+	}
+
+	div.card:not(.style) {
+		background-color: #cccccc; 
+	}
+
+	div.card.finisher {
+		background-color: #222222; 
+		color: #fff;
+	}
+
+	.card .carac {
+		float: left;
+	}
+
+	.card.style .carac {
+		float: right;
+	}
+
+	.range {background-color: #54c0c2; color: #fff; padding: 1px;}
+	.power {background-color: #de5356; color: #fff;padding: 1px;}
+	.priority {background-color: #f4e35f; color: #000;padding: 1px;}
 </style>
 </head>
 <body>
