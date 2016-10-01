@@ -19,6 +19,26 @@ function display() {
 	}
 }
 
+function giveFlight(nb) {
+	var res = '';
+	for (var i = 0 ; i < nb ; i++) res +='*';
+	return res;
+}
+
+function displayIcon() {
+	$("body").empty();
+
+	for (var i = 0 ; i < fighters.length ; i++) {
+
+		var template = $('<div class="thumbnail small" >');
+		if (fighters[i].set != undefined) template.addClass('set' + fighters[i].set);
+		template.append('<h1>' + fighters[i].name + '</h1>');
+		if (fighters[i].flight != undefined) template.append('<p>' + giveFlight(fighters[i].flight) + '</p>');
+
+		$("body").append(template);
+	}
+}
+
 function giveAbility(ab) {
 	var div = $('<div class="ability">');
 	div.append('<span class="sub">(' + ab.type +  ') </span> ');
@@ -43,6 +63,7 @@ function displayFull() {
 	for (var i = 0 ; i < fighters.length ; i++) {
 
 		var template = $('<div class="thumbnail full" >');
+		if (fighters[i].set != undefined) template.addClass('set' + fighters[i].set);
 		template.append('<h1>' + fighters[i].name + '</h1>');
 
 		if (fighters[i].abilities.length > 0) template.append('<h2>Abilities</h2>');
