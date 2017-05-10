@@ -1,0 +1,21 @@
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.menu {
+    color: #fff;
+    background-color: #000;
+    padding: 0.5em;
+}

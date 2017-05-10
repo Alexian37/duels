@@ -1,10 +1,12 @@
-define(["models/players"], function(P) {
+define(["models/game"], function(game) {
+
     return {
 
         start: function() {
-            var p1 = new P.Player("Bob");
-            console.log(p1);
+            game.start([{ name: "Jason", character: "Indiana" }, { name: "Henk", character: "The Green One" }]);
+            console.log(game.players.list());
         }
 
     }
+
 });
