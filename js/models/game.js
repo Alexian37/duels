@@ -23,6 +23,8 @@ define(["models/players"], function(players) {
                 this.players = players;
             }
 
+            this.board = [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY];
+
         }
 
     }

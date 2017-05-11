@@ -8,7 +8,9 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['jquery', 'app/app'],
-    function($, app) {
+requirejs(['jquery', 'app/app', 'app/reference'],
+    function($, app, R) {
         app.start();
+
+        console.log(R.cardsForCharacter(0))
     });
