@@ -1,5 +1,10 @@
-//  Eligor, Shekhtur, Malandrax, and Joal
-
+/**
+ * Starting class for the app.
+ * Rely on require.js
+ * 
+ * @module main
+ * @link http://requirejs.org
+ */
 requirejs.config({
     baseUrl: 'js',
     paths: {
@@ -12,5 +17,5 @@ requirejs(['jquery', 'app/app', 'app/reference'],
     function($, app, R) {
         app.start();
 
-        console.log(R.cardsForCharacter(0))
+        //console.log(R.cardsForCharacter(0))
     });

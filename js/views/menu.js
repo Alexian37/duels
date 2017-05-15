@@ -1,3 +1,9 @@
+/**
+ * View for the top bar
+ * 
+ * @module menu
+ * @view
+ */
 define(["views/labels"], function(L) {
 
     return {

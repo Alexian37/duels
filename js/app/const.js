@@ -1,4 +1,12 @@
+/**
+ * 
+ * Constants for the game.
+ * Avoid using strings as much as possible, it's easier to store and share integers.
+ * 
+ */
+
 var CHARACTERS = ['Indiana', 'The Green One'];
+//  Eligor, Shekhtur, Malandrax, and Joal
 
 // on board
 var EMPTY = 0;
@@ -29,3 +37,10 @@ var IGNORE_TOLERANCE_IF_INIT_6 = 13;
 var SPECIAL_LIFE_ABSORPTION = 14;
 var SPECIAL_NO_BID = 15;
 var SPECIAL_NO_ABSORPTION_AND_TOLERANCE = 16;
+var GAIN_SPEED_PER_DAMAGE_LIMIT5 = 17;
+
+// game elements 
+var SPEED_TOKEN = 0;
+
+// bid effects 
+var SPEED_TOKEN_FOR_INIT = 0;

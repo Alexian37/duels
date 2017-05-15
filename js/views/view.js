@@ -1,3 +1,10 @@
+/**
+ * Main module for the view. 
+ * Place here all the render/refresh functions, and call them accordingly
+ * 
+ * @module views
+ * @view
+ */
 define(["views/menu"], function(menu) {
 
     return {

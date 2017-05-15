@@ -1,12 +1,30 @@
+/**
+ * Holds players'data for a game
+ * 
+ * @module players
+ * @model
+ */
 define(function() {
 
-    var Player = function(name, characterName) {
+    /**
+     * Each player is instanciated through this class
+     * The services will enrich the player's data
+     * 
+     * @class Player
+     */
+    var Player = function(name, characterName, version) {
+
         if (name != undefined) this.name = name;
         if (characterName != undefined) this.character = characterName;
+        if (version == undefined) version = 0;
+        this.characterVersion = version;
         this.health = 20;
+
     };
 
     return {
+
+        Player: Player,
 
         get: function(name) {
             if (this.players != undefined) {

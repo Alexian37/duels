@@ -1,3 +1,11 @@
+/**
+ * Reference module describing cards 
+ * 
+ * BASE_CARDS are the common fighting cards
+ * HERO_CARDS has one entry per character (fighter), containing all the combat cards for this fighter
+ * 
+ * @module cards
+ */
 define({
 
     BASE_CARDS: [

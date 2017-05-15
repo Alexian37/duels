@@ -1,8 +1,9 @@
 /**
+ * the main module for a game.
  * 
  * @module Game module
  */
-define(["models/players"], function(players) {
+define(["models/players", "services/setup"], function(players, setup) {
 
     return {
 
@@ -21,9 +22,10 @@ define(["models/players"], function(players) {
                 }
 
                 this.players = players;
+                setup.startingMaterial(this);
             }
 
-            this.board = [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY];
+            this.board = [EMPTY, PLAYER1, EMPTY, EMPTY, EMPTY, PLAYER2, EMPTY];
 
         }
 
