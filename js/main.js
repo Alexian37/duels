@@ -18,4 +18,5 @@ requirejs(['jquery', 'app/app', 'app/reference'],
         app.start();
 
         //console.log(R.cardsForCharacter(0))
-    });
+    }
+);

@@ -12,10 +12,10 @@ define(function() {
      * 
      * @class Player
      */
-    var Player = function(name, characterName, version) {
+    var Player = function(name, characterIndex, version) {
 
         if (name != undefined) this.name = name;
-        if (characterName != undefined) this.character = characterName;
+        if (characterIndex != undefined) this.character = characterIndex;
         if (version == undefined) version = 0;
         this.characterVersion = version;
         this.health = 20;
@@ -37,11 +37,11 @@ define(function() {
             return undefined;
         },
 
-        add: function(name, characterName) {
+        add: function(name, characterIndex) {
             if (this.players == undefined) {
                 this.players = [];
             }
-            this.players.push(new Player(name, characterName));
+            this.players.push(new Player(name, characterIndex));
         },
 
         list: function() {

@@ -21,7 +21,7 @@ define(["views/labels"], function(L) {
                     for (var i = 0; i < players.length; i++) {
                         var player = players[i];
                         var $elem = $('#t_player').html();
-                        $elem = $elem.replace("$1", player.name).replace("$2", player.character).replace("$3", player.health);
+                        $elem = $elem.replace("$1", player.name).replace("$2", CHARACTERS[player.character]).replace("$3", player.health);
                         $("#main .menu").append($elem);
                     }
                 }
