@@ -14,6 +14,12 @@ define(["app/reference", "models/players"], function(R, players) {
         tab.push(obj.characterVersion);
         tab.push(obj.health);
 
+        if (obj.token != undefined) {
+            tab.push(obj.token.concat([]));
+        } else {
+            tab.push(undefined);
+        }
+
         return tab;
     }
 
@@ -24,6 +30,9 @@ define(["app/reference", "models/players"], function(R, players) {
         obj.character = tab[1];
         obj.characterVersion = tab[2];
         obj.health = tab[3];
+        if (tab[4] != undefined) {
+            obj.token = tab[4];
+        }
 
         return obj;
     }

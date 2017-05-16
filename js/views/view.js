@@ -5,18 +5,21 @@
  * @module views
  * @view
  */
-define(["views/menu"], function(menu) {
+define(["views/menu", "views/board"], function(menu, board) {
 
     return {
         menu: menu,
+        board: board,
 
         init: function(game) {
             this.game = game;
             this.menu.init(game);
+            this.board.init(game);
         },
 
         render: function() {
             this.menu.refresh();
+            this.board.refresh();
         }
     };
 

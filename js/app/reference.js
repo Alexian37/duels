@@ -18,6 +18,10 @@ define(["app/cards", "app/characters"], function(CARDS, FIGHTERS) {
             return CARDS.HERO_CARDS[idx];
         },
 
+        baseCards: function() {
+            return CARDS.BASE_CARDS;
+        },
+
         characterAttributes: function(charIndexOrName, version) {
             var idx = (typeof charIndexOrName == "number") ? charIndexOrName : this.characterIndex(charIndexOrName);
             if (version == undefined) version = 0;

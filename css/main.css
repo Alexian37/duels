@@ -32,3 +32,27 @@ span.player {
 .menu .icon {
     width: 0.7em;
 }
+
+.board {
+    position: relative;
+    margin-top: 120px;
+}
+
+.space_holder {
+    display: inline-block;
+    position: relative;
+}
+
+.board .space {
+    width: 120px;
+}
+
+.board .fighter {
+    position: absolute;
+    width: 75px;
+    transform: scaleX(-1);
+}
+
+.board .fighter.turn {
+    transform: none;
+}
