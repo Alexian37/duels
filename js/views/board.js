@@ -4,7 +4,7 @@
  * @module board
  * @view
  */
-define([], function() {
+define(["views/card"], function(cardView) {
 
     return {
         init: function(game) {
@@ -12,6 +12,11 @@ define([], function() {
         },
 
         refresh: function() {
+            this.refreshBoard();
+            this.refreshPlayerHand();
+        },
+
+        refreshBoard: function() {
             $("#main .board").empty();
 
             $("#main .board").append($('#t_spaces').html());
@@ -28,6 +33,12 @@ define([], function() {
                     }
                 }
             }
+        },
+
+        refreshPlayerHand: function() {
+            //playerHand
+            $("#main .playerHand").empty();
+            $("#main .playerHand").append(cardView.giveCard(0, 0));
         }
     }
 

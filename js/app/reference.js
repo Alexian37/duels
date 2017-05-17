@@ -18,8 +18,21 @@ define(["app/cards", "app/characters"], function(CARDS, FIGHTERS) {
             return CARDS.HERO_CARDS[idx];
         },
 
+        cardForCharacter: function(cardIndex, charIndexOrName) {
+            var characterCards = this.cardsForCharacter(charIndexOrName);
+            if (characterCards != undefined && characterCards.length > cardIndex) {
+                return characterCards[cardIndex];
+            }
+
+            return undefined;
+        },
+
         baseCards: function() {
             return CARDS.BASE_CARDS;
+        },
+
+        baseCard: function(cardId) {
+            return this.baseCards()[cardId];
         },
 
         characterAttributes: function(charIndexOrName, version) {

@@ -18,6 +18,11 @@ var LEFT = 0;
 var RIGHT = 1;
 var COMBINED = 2;
 
+// characteristics
+var TARGET = 0;
+var STRENGTH = 1;
+var SPEED = 2;
+
 // effects
 var MOVE_ONE = 0;
 var FORWARD_ONE_OR_TWO = 1;

@@ -36,18 +36,26 @@ define(["app/reference"], function(R) {
             var cards = R.cardsForCharacter(player.character);
             if (cards != undefined) {
                 player.discard = [];
+                player.hand = [];
                 var baseCards = R.baseCards();
                 for (var i = 0; i < baseCards.length; i++) {
                     if (baseCards[i].default_discard != undefined) {
                         player.discard[baseCards[i].default_discard] = [-1, i];
+                    } else {
+                        player.hand.push(i);
                     }
                 }
                 for (var i = 0; i < cards.length; i++) {
                     if (cards[i].type == COMBINED && player.killer == undefined) {
-                        player.killer = i;
+                        player.killer = i + 100;
+                        continue;
                     }
                     if (cards[i].default_discard != undefined) {
-                        player.discard[cards[i].default_discard][0] = i;
+                        player.discard[cards[i].default_discard][0] = i + 100;
+                        continue;
+                    }
+                    if (cards[i].default_discard == undefined && cards[i].type != COMBINED) {
+                        player.hand.push(i + 100);
                     }
                 }
             }
@@ -65,7 +73,7 @@ define(["app/reference"], function(R) {
                     var fighter = R.characterAttributes(players[i].character, players[i].characterVersion);
                     if (fighter != undefined && fighter.setup != undefined) {
                         applySetupToPlayer(players[i], fighter.setup);
-                        console.log(players[i])
+                        console.log(JSON.stringify(players[i]))
                     }
                 }
             }
