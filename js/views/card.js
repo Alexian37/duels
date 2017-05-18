@@ -24,12 +24,15 @@ define(["app/reference", "views/labels", "views/cardText"], function(R, L, cardT
 
         switch (type) {
             case TARGET:
+                characStr = characStr.replace("$1", "target");
                 characStr = characStr.replace("$3", L.target);
                 break;
             case STRENGTH:
+                characStr = characStr.replace("$1", "strength");
                 characStr = characStr.replace("$3", L.strength);
                 break;
             case SPEED:
+                characStr = characStr.replace("$1", "speed");
                 characStr = characStr.replace("$3", L.speed);
                 break;
         }
@@ -38,7 +41,7 @@ define(["app/reference", "views/labels", "views/cardText"], function(R, L, cardT
     }
 
     var giveTextCard = function(card) {
-        // permanent, hit, damage, tolerance, start_turn, end_turn, before_action, after_action
+        //  hit, damage,
         var finalString = "";
 
         if (card.tolerance != undefined) {
@@ -56,6 +59,21 @@ define(["app/reference", "views/labels", "views/cardText"], function(R, L, cardT
         if (card.after_action != undefined) {
             var text = $("#t_card_text_titled").html();
             finalString += text.replace("$1", L.upperCaseFirst("after_action") + ": ").replace("$2", cardText.effect(card.after_action));
+        }
+
+        if (card.before_action != undefined) {
+            var text = $("#t_card_text_titled").html();
+            finalString += text.replace("$1", L.upperCaseFirst("before_action") + ": ").replace("$2", cardText.effect(card.before_action));
+        }
+
+        if (card.end_turn != undefined) {
+            var text = $("#t_card_text_titled").html();
+            finalString += text.replace("$1", L.upperCaseFirst("end_turn") + ": ").replace("$2", cardText.effect(card.end_turn));
+        }
+
+        if (card.start_turn != undefined) {
+            var text = $("#t_card_text_titled").html();
+            finalString += text.replace("$1", L.upperCaseFirst("start_turn") + ": ").replace("$2", cardText.effect(card.start_turn));
         }
 
         return "<div>" + finalString + "</div>";

@@ -4,7 +4,7 @@
  * @module board
  * @view
  */
-define(["views/card"], function(cardView) {
+define(["views/card", "services/playerService"], function(cardView, playerService) {
 
     return {
         init: function(game) {
@@ -37,8 +37,34 @@ define(["views/card"], function(cardView) {
 
         refreshPlayerHand: function() {
             //playerHand
-            $("#main .playerHand").empty();
-            $("#main .playerHand").append(cardView.giveCard(0, 0));
+            $("#main .playerHand .hand.right").empty();
+            $("#main .playerHand .hand.left").empty();
+
+            var player = this.game.players.players[0];
+
+            var rightCards = playerService.availableCards(player, RIGHT);
+            if (rightCards != undefined) {
+                for (var i = 0; i < rightCards.length; i++) {
+                    if (rightCards[i] >= 100) {
+                        $("#main .playerHand .hand.right").append(cardView.giveCard(rightCards[i] - 100, player.character));
+                    } else {
+                        $("#main .playerHand .hand.right").append(cardView.giveCard(rightCards[i]));
+                    }
+                }
+            }
+
+            var leftCards = playerService.availableCards(player, LEFT);
+            if (leftCards != undefined) {
+                for (var i = 0; i < leftCards.length; i++) {
+                    if (leftCards[i] >= 100) {
+                        $("#main .playerHand .hand.left").append(cardView.giveCard(leftCards[i] - 100, player.character));
+                    } else {
+                        $("#main .playerHand .hand.left").append(cardView.giveCard(leftCards[i]));
+                    }
+                }
+            }
+
+
         }
     }
 

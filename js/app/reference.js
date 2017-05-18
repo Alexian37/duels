@@ -35,6 +35,14 @@ define(["app/cards", "app/characters"], function(CARDS, FIGHTERS) {
             return this.baseCards()[cardId];
         },
 
+        giveCard: function(cardId, charIndexOrName) {
+            if (charIndexOrName != undefined) {
+                return this.cardForCharacter(cardId, charIndexOrName);
+            } else {
+                return this.baseCard(cardId);
+            }
+        },
+
         characterAttributes: function(charIndexOrName, version) {
             var idx = (typeof charIndexOrName == "number") ? charIndexOrName : this.characterIndex(charIndexOrName);
             if (version == undefined) version = 0;

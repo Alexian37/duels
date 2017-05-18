@@ -20,6 +20,12 @@ define(["app/reference", "models/players"], function(R, players) {
             tab.push(undefined);
         }
 
+        if (obj.hand != undefined) {
+            tab.push(obj.hand.concat([]));
+        } else {
+            tab.push(undefined);
+        }
+
         return tab;
     }
 
@@ -32,6 +38,9 @@ define(["app/reference", "models/players"], function(R, players) {
         obj.health = tab[3];
         if (tab[4] != undefined) {
             obj.token = tab[4];
+        }
+        if (tab[5] != undefined) {
+            obj.hand = tab[5];
         }
 
         return obj;

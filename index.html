@@ -23,7 +23,10 @@
     <div class="page active" id="main">
         <div class="menu"></div>
         <div class="board"></div>
-        <div class="playerHand"></div>
+        <div class="playerHand">
+            <div class="hand right"></div>
+            <div class="hand left"></div>
+        </div>
     </div>
 
     <div class="template">
@@ -36,12 +39,15 @@
 
         <div id="t_card">
             <div class="card $1">
-                <div>$2</div>
-                <div>$3</div>
+                <div class="characteristics">$2</div>
+                <div class="image_holder"></div>
+                <div class="card_description">$3</div>
+                <div>&nbsp;</div>
+                <div class="overlay"></div>
             </div>
         </div>
         <div id="t_card_value">
-            <div class="val $1"><span>$2</span><span>$3</span></div>
+            <div class="val $1"><span class="top_label">$2</span><span class="bottom_label">$3</span></div>
         </div>
 
         <div id="t_card_text_titled">

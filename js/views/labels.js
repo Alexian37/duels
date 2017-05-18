@@ -11,6 +11,7 @@ define({
     },
 
     health: "health",
+    health_point: "health point",
     turn: "turn",
     round: "round",
     target: "target",
@@ -23,5 +24,12 @@ define({
     after_action: "after action",
     start_turn: "start of turn",
     end_turn: "end of turn",
+    hit: "on hit",
+    damage: "on damage",
+    init_token: "speed token",
+    ko: "knocked-out",
+    hero_power: "hero power",
+    bid: "bid",
+    duel: "duel"
 
 });
