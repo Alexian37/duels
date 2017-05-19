@@ -175,19 +175,32 @@ span.player {
 .card_description {
     padding: 0.1em;
     font-size: 0.75em;
-    height: 135px;
+    height: 132px;
+    background-color: #fff;
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+}
+
+.card.right .card_description {
+    border-radius: 10px 0 0 10px;
 }
 
 .card.active .card_description {
     padding: 0.2em;
-    font-size: 0.85em;
+    /*font-size: 0.85em;*/
+    border-radius: 0;
+    overflow: visible;
 }
 
 .playerHand {
-    min-width: 1220px;
+    min-width: 1241px;
 }
 
 .playerHand .hand {
     display: inline-block;
     max-width: 620px;
+}
+
+.playerHand.choosing .hand {
+    max-width: 410px;
 }

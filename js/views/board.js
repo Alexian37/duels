@@ -13,7 +13,8 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
 
         refresh: function() {
             this.refreshBoard();
-            this.refreshPlayerHand();
+            this.refreshPlayerHand([101, 1]);
+            //this.refreshPlayerHand();
         },
 
         refreshBoard: function() {
@@ -35,31 +36,55 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
             }
         },
 
-        refreshPlayerHand: function() {
+        refreshPlayerHand: function(activeCards) {
             //playerHand
             $("#main .playerHand .hand.right").empty();
             $("#main .playerHand .hand.left").empty();
 
             var player = this.game.players.players[0];
 
+            if (activeCards == undefined) {
+                activeCards = [];
+                $("#main .playerHand").removeClass('choosing');
+            } else {
+                $("#main .playerHand").addClass('choosing');
+            }
+
             var rightCards = playerService.availableCards(player, RIGHT);
             if (rightCards != undefined) {
                 for (var i = 0; i < rightCards.length; i++) {
-                    if (rightCards[i] >= 100) {
-                        $("#main .playerHand .hand.right").append(cardView.giveCard(rightCards[i] - 100, player.character));
-                    } else {
-                        $("#main .playerHand .hand.right").append(cardView.giveCard(rightCards[i]));
+                    if (activeCards.indexOf(rightCards[i]) == -1) {
+                        if (rightCards[i] >= 100) {
+                            $("#main .playerHand .hand.right").append(cardView.giveCard(rightCards[i] - 100, player.character));
+                        } else {
+                            $("#main .playerHand .hand.right").append(cardView.giveCard(rightCards[i]));
+                        }
                     }
+                }
+            }
+
+            if (activeCards != undefined) {
+                for (var i = 0; i < activeCards.length; i++) {
+                    var $card = undefined;
+                    if (activeCards[i] >= 100) {
+                        $card = cardView.giveCard(activeCards[i] - 100, player.character);
+                    } else {
+                        $card = cardView.giveCard(activeCards[i]);
+                    }
+                    $card.addClass('active');
+                    $("#main .playerHand .hand.selected").append($card);
                 }
             }
 
             var leftCards = playerService.availableCards(player, LEFT);
             if (leftCards != undefined) {
                 for (var i = 0; i < leftCards.length; i++) {
-                    if (leftCards[i] >= 100) {
-                        $("#main .playerHand .hand.left").append(cardView.giveCard(leftCards[i] - 100, player.character));
-                    } else {
-                        $("#main .playerHand .hand.left").append(cardView.giveCard(leftCards[i]));
+                    if (activeCards.indexOf(leftCards[i]) == -1) {
+                        if (leftCards[i] >= 100) {
+                            $("#main .playerHand .hand.left").append(cardView.giveCard(leftCards[i] - 100, player.character));
+                        } else {
+                            $("#main .playerHand .hand.left").append(cardView.giveCard(leftCards[i]));
+                        }
                     }
                 }
             }
