@@ -15,6 +15,7 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
             this.refreshBoard();
             this.refreshPlayerHand([101, 1]);
             //this.refreshPlayerHand();
+            this.refreshPlayerDiscard();
         },
 
         refreshBoard: function() {
@@ -88,8 +89,10 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
                     }
                 }
             }
+        },
 
-
+        refreshPlayerDiscard: function() {
+            $("#main .discard").empty();
         }
     }
 

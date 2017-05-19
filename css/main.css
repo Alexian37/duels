@@ -166,6 +166,11 @@ span.player {
     display: none;
 }
 
+.image_holder img {
+    max-width: 155px;
+    max-height: 135px;
+}
+
 .card.active .image_holder {
     display: inline-block;
     width: 155px;
