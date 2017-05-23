@@ -11,10 +11,11 @@ define(["views/menu", "views/board"], function(menu, board) {
         menu: menu,
         board: board,
 
-        init: function(game) {
+        init: function(game, pointOfView) {
             this.game = game;
             this.menu.init(game);
-            this.board.init(game);
+            this.board.init(game, pointOfView);
+            this.pov = pointOfView;
         },
 
         render: function() {

@@ -43,9 +43,18 @@ var SPECIAL_LIFE_ABSORPTION = 14;
 var SPECIAL_NO_BID = 15;
 var SPECIAL_NO_ABSORPTION_AND_TOLERANCE = 16;
 var GAIN_SPEED_PER_DAMAGE_LIMIT5 = 17;
+var MOVE_OPPONENT_ONE = 18;
 
 // game elements 
 var SPEED_TOKEN = 0;
 
 // bid effects 
 var SPEED_TOKEN_FOR_INIT = 0;
+
+// game phases
+var CHOOSE_CARDS = 0;
+var BID_PHASE = 1;
+var START_TURN = 2;
+var ATTACKER_PHASE = 3;
+var DEFENDER_PHASE = 4;
+var END_TURN = 5;

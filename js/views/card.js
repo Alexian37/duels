@@ -76,6 +76,16 @@ define(["app/reference", "views/labels", "views/cardText"], function(R, L, cardT
             finalString += text.replace("$1", L.upperCaseFirst("start_turn") + ": ").replace("$2", cardText.effect(card.start_turn));
         }
 
+        if (card.hit != undefined) {
+            var text = $("#t_card_text_titled").html();
+            finalString += text.replace("$1", L.upperCaseFirst("hit") + ": ").replace("$2", cardText.effect(card.hit));
+        }
+
+        if (card.damage != undefined) {
+            var text = $("#t_card_text_titled").html();
+            finalString += text.replace("$1", L.upperCaseFirst("damage") + ": ").replace("$2", cardText.effect(card.damage));
+        }
+
         return "<div>" + finalString + "</div>";
 
     }

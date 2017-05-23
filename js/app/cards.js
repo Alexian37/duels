@@ -11,7 +11,7 @@ define({
     BASE_CARDS: [
         { target: 1, strength: 4, speed: 3, tolerance: 5, type: LEFT },
         { target: [1, 4], strength: 3, speed: 2, tolerance: 2, type: LEFT },
-        { target: 1, strength: 2, speed: 5, hit: MOVE_ONE, default_discard: 1, type: LEFT },
+        { target: 1, strength: 2, speed: 5, hit: MOVE_OPPONENT_ONE, default_discard: 1, type: LEFT },
         { target: 1, strength: 3, speed: 4, before_action: FORWARD_ONE_OR_TWO, type: LEFT },
         { target: [2, 3], strength: 3, speed: 1, start_turn: BACKWARD_ONE_OR_TWO, type: LEFT },
         { target: "n", strength: "n", speed: 9, after_action: [MOVE_1_2_3_INVULNERABLE], default_discard: 0, type: LEFT },

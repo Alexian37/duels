@@ -29,6 +29,10 @@ span.player {
     width: 15em;
 }
 
+span.player.current {
+    color: #f00;
+}
+
 .menu .icon {
     width: 0.7em;
 }
@@ -36,11 +40,13 @@ span.player {
 .board {
     position: relative;
     margin-top: 120px;
+    margin-bottom: 40px;
 }
 
 .space_holder {
     display: inline-block;
     position: relative;
+    min-width: 900px;
 }
 
 .board .space {
@@ -119,7 +125,6 @@ span.player {
     height: 100%;
     z-index: 1;
     opacity: 0.25;
-    background-image: url('../img/reticule.svg');
     background-repeat: no-repeat;
     background-position: 50% 0;
     -ms-background-size: cover;
@@ -127,6 +132,10 @@ span.player {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
+}
+
+.val.target:before {
+    background-image: url('../img/reticule.svg');
 }
 
 .val.strength {
@@ -192,9 +201,71 @@ span.player {
 
 .card.active .card_description {
     padding: 0.2em;
-    /*font-size: 0.85em;*/
     border-radius: 0;
     overflow: visible;
+}
+
+.discard {
+    height: 70px;
+    min-width: 860px;
+}
+
+.discard .card {
+    width: 100px;
+    height: 70px;
+    border-radius: 0;
+}
+
+.discard .card .bottom_label {
+    display: none;
+}
+
+.discard .card .characteristics {
+    width: 20px;
+}
+
+.discard .card .val {
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    font-size: 0.7em;
+    overflow: hidden;
+    display: inherit;
+}
+
+.discard .card.left .val {
+    border-radius: 0;
+}
+
+.discard .card .val span.top_label {
+    font-weight: normal;
+}
+
+.discard .card .val:before {
+    content: none;
+}
+
+.discard .card .card_description {
+    border-radius: 0;
+    font-size: 0.6em;
+    height: 68px;
+    overflow: hidden;
+}
+
+.discard_element {
+    display: inline-block;
+}
+
+.discard .discard_player {
+    display: inline-block;
+}
+
+.discard .discard_player.left {
+    float: left;
+}
+
+.discard .discard_player.right {
+    float: right;
 }
 
 .playerHand {
@@ -208,4 +279,8 @@ span.player {
 
 .playerHand.choosing .hand {
     max-width: 410px;
+}
+
+.thin {
+    font-size: 1px;
 }

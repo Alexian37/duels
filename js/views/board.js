@@ -7,15 +7,16 @@
 define(["views/card", "services/playerService"], function(cardView, playerService) {
 
     return {
-        init: function(game) {
+        init: function(game, pointOfView) {
             this.game = game;
+            this.pov = pointOfView;
         },
 
         refresh: function() {
             this.refreshBoard();
             this.refreshPlayerHand([101, 1]);
             //this.refreshPlayerHand();
-            this.refreshPlayerDiscard();
+            this.refreshPlayerDiscards();
         },
 
         refreshBoard: function() {
@@ -27,7 +28,7 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
                     if (this.game.board[i] != EMPTY) {
                         var $space = $($('#t_generic_fighter').html());
                         $space.css({
-                            left: 20 + 120 * i + "px",
+                            left: 50 + 120 * i + "px",
                             top: "-70px"
                         });
                         if (i > 3) $space.addClass('turn');
@@ -38,7 +39,7 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
         },
 
         refreshPlayerHand: function(activeCards) {
-            //playerHand
+
             $("#main .playerHand .hand.right").empty();
             $("#main .playerHand .hand.left").empty();
 
@@ -91,8 +92,37 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
             }
         },
 
-        refreshPlayerDiscard: function() {
+        refreshPlayerDiscards: function() {
             $("#main .discard").empty();
+
+            var players = this.game.players.list();
+            for (var i = 0; i < players.length; i++) {
+                var player = players[i];
+                if (player.discard != undefined) {
+
+                    var $playerDiscard = $($('#t_discard_player').html());
+                    for (var j = player.discard.length - 1; j >= 0; j--) {
+                        var element = player.discard[j];
+
+                        var $element = $($('#t_discard_element').html());
+                        for (var k = 0; k < element.length; k++) {
+                            if (element[k] >= 100) {
+                                $element.append(cardView.giveCard(element[k] - 100, player.character));
+                            } else {
+                                $element.append(cardView.giveCard(element[k]));
+                            }
+
+                            $playerDiscard.append($element);
+                        }
+                    }
+                    if (i == 0) {
+                        $playerDiscard.addClass('left');
+                    } else {
+                        $playerDiscard.addClass('right');
+                    }
+                    $("#main .discard").append($playerDiscard);
+                }
+            }
         }
     }
 

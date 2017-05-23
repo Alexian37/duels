@@ -26,6 +26,12 @@ define(["app/reference", "models/players"], function(R, players) {
             tab.push(undefined);
         }
 
+        if (obj.discard != undefined) {
+            tab.push(obj.discard.concat([]));
+        } else {
+            tab.push(undefined);
+        }
+
         return tab;
     }
 
@@ -41,6 +47,9 @@ define(["app/reference", "models/players"], function(R, players) {
         }
         if (tab[5] != undefined) {
             obj.hand = tab[5];
+        }
+        if (tab[6] != undefined) {
+            obj.discard = tab[6];
         }
 
         return obj;

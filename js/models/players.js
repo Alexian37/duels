@@ -28,9 +28,14 @@ define(function() {
 
         get: function(name) {
             if (this.players != undefined) {
-                for (var i = 0; i < this.players.length; i++) {
-                    if (this.players[i].name == name) {
-                        return this.players[i];
+
+                if (typeof name == "number") {
+                    return this.players[name];
+                } else {
+                    for (var i = 0; i < this.players.length; i++) {
+                        if (this.players[i].name == name) {
+                            return this.players[i];
+                        }
                     }
                 }
             }

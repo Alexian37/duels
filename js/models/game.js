@@ -13,8 +13,6 @@ define(["models/players", "services/setup"], function(players, setup) {
          */
         start: function(playerMap) {
 
-            this.turn = 0;
-
             if (playerMap != undefined) {
                 players.init();
                 for (var i = 0; i < playerMap.length; i++) {
@@ -26,6 +24,13 @@ define(["models/players", "services/setup"], function(players, setup) {
             }
 
             this.board = [EMPTY, PLAYER1, EMPTY, EMPTY, EMPTY, PLAYER2, EMPTY];
+
+            this.workflow = {
+                turn: 1,
+                phase: CHOOSE_CARDS,
+                turnOrder: Math.random() < 0.5 ? [0, 1] : [1, 0]
+            };
+            this.workflow.currentPlayer = this.workflow.turnOrder[0];
 
         }
 

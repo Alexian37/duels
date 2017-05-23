@@ -4,6 +4,8 @@ define(["views/labels"], function(L) {
         switch (flag) {
             case MOVE_ONE:
                 return "Move 1 " + L.space;
+            case MOVE_OPPONENT_ONE:
+                return "Move your opponent 1 " + L.space;
             case BACKWARD_ONE_OR_TWO:
                 return "Move backward 1 or 2 " + L.space + "s";
             case FORWARD_ONE_OR_TWO:
