@@ -7,7 +7,7 @@
  * @module setup
  * @service
  */
-define(["app/reference"], function(R) {
+define(["ref/reference"], function(R) {
 
     /**
      * Use this to setup player material

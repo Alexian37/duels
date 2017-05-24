@@ -4,7 +4,7 @@
  * 
  * @module reference
  */
-define(["app/cards", "app/characters"], function(CARDS, FIGHTERS) {
+define(["ref/cards", "ref/characters"], function(CARDS, FIGHTERS) {
 
     return {
 

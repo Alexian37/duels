@@ -13,7 +13,7 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['jquery', 'app/app', 'app/reference'],
+requirejs(['jquery', 'app/app', 'ref/reference'],
     function($, app, R) {
         app.start();
 

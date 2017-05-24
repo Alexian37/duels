@@ -1,4 +1,4 @@
-define(["app/reference"], function(R) {
+define(["ref/reference"], function(R) {
 
     return {
 

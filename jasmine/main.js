@@ -26,7 +26,7 @@ require.config({
 });
 
 require(['jasmine-boot'], function() {
-    require(['../jasmine/spec/reference.spec'], function() {
+    require(['../jasmine/spec/reference.spec', '../jasmine/spec/model.spec'], function() {
         //trigger Jasmine
         window.onload();
     })

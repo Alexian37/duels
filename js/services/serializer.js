@@ -4,7 +4,7 @@
  * 
  * @module serializer
  */
-define(["app/reference", "models/players"], function(R, players) {
+define(["ref/reference", "models/players"], function(R, players) {
 
     var exportPlayer = function(obj) {
         var tab = [];

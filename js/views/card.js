@@ -1,4 +1,4 @@
-define(["app/reference", "views/labels", "views/cardText"], function(R, L, cardText) {
+define(["ref/reference", "views/labels", "views/cardText"], function(R, L, cardText) {
 
     var giveFormattedNumber = function(value, leftOrRight) {
         if (value < 0 || leftOrRight !== RIGHT) {
