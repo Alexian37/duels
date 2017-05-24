@@ -121,8 +121,8 @@ define(["ref/reference", "views/labels", "views/cardText"], function(R, L, cardT
         cardStr = cardStr.replace("$3", giveTextCard(refCard));
 
         var card = $(cardStr);
-        card.data('cardId', cardId);
-        if (characterId != undefined) card.data('characterId', characterId);
+        card.children('.overlay').data('cardId', cardId);
+        if (characterId != undefined) card.children('.overlay').data('characterId', characterId);
 
         return card;
     }

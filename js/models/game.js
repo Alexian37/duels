@@ -34,6 +34,10 @@ define(["models/players", "services/setup"], function(players, setup) {
                 throw new Error("Error : wrong input parameters");
             }
 
+        },
+
+        currentPlayer: function() {
+            return this.players.get(this.workflow.currentPlayer);
         }
 
     }

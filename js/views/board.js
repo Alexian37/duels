@@ -12,10 +12,10 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
             this.pov = pointOfView;
         },
 
-        refresh: function() {
+        refresh: function(selection) {
             this.refreshBoard();
-            this.refreshPlayerHand([101, 1]);
-            //this.refreshPlayerHand();
+            //this.refreshPlayerHand([101, 1]);
+            this.refreshPlayerHand(selection);
             this.refreshPlayerDiscards();
         },
 
@@ -41,6 +41,7 @@ define(["views/card", "services/playerService"], function(cardView, playerServic
         refreshPlayerHand: function(activeCards) {
 
             $("#main .playerHand .hand.right").empty();
+            $("#main .playerHand .hand.selected").empty();
             $("#main .playerHand .hand.left").empty();
 
             var player = this.game.players.players[0];

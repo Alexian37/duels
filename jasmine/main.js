@@ -12,7 +12,7 @@ require.config({
         'jasmine-lib': ['../jasmine/lib/jasmine-2.6.1/jasmine'],
         'jasmine-html': ['../jasmine/lib/jasmine-2.6.1/jasmine-html'],
         'jasmine-boot': ['../jasmine/lib/jasmine-2.6.1/boot'],
-        'const': ['app/const']
+        'const': ['ref/const']
     },
     // shim: makes external libraries compatible with requirejs (AMD)
     shim: {

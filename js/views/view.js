@@ -18,9 +18,13 @@ define(["views/menu", "views/board"], function(menu, board) {
             this.pov = pointOfView;
         },
 
-        render: function() {
+        render: function(selection) {
             this.menu.refresh();
-            this.board.refresh();
+            this.board.refresh(selection);
+        },
+
+        renderActiveCards: function(cards) {
+            this.board.refreshPlayerHand(cards);
         }
     };
 

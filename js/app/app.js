@@ -4,7 +4,7 @@
  * @module app
  * @controller
  */
-define(["models/game", "views/view"], function(game, view) {
+define(["controllers/gameController"], function(gameController) {
 
     return {
 
@@ -15,9 +15,7 @@ define(["models/game", "views/view"], function(game, view) {
          * @method
          */
         start: function(pointOfView) {
-            game.start([{ name: "Jason", character: 0 }, { name: "Henk", character: 0 }]);
-            view.init(game, pointOfView);
-            view.render();
+            gameController.start(pointOfView);
         }
 
     }
